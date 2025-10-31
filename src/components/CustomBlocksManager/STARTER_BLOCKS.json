@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "exportedAt": "2024-10-30T00:00:00Z",
+  "blocksCount": 10,
+  "description": "Blocs de démarrage prédéfinis pour CustomBlocksManager",
+  "blocks": [
+    {
+      "id": "starter-1",
+      "name": "Code Python",
+      "icon": "python",
+      "color": "#3b82f6",
+      "markdown": "```python\ndef hello_world():\n    print('Hello, World!')\n\nhello_world()\n```\n\n**Résultat:**\n```\nHello, World!\n```",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-2",
+      "name": "Code JavaScript",
+      "icon": "js",
+      "color": "#f59e0b",
+      "markdown": "```javascript\nconst greet = (name) => {\n  return `Hello, ${name}!`;\n};\n\nconsole.log(greet('World'));\n```\n\n**Résultat:**\n```\nHello, World!\n```",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-3",
+      "name": "Composant React",
+      "icon": "react",
+      "color": "#06b6d4",
+      "markdown": "```jsx\nimport { useState } from 'react';\n\nfunction MyComponent() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>\n        Incrémenter\n      </button>\n    </div>\n  );\n}\n\nexport default MyComponent;\n```",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-4",
+      "name": "Alerte Attention",
+      "icon": "warning",
+      "color": "#f59e0b",
+      "markdown": "> **Attention!**\n>\n> Veuillez faire attention à ce point important.\n> Cela pourrait affecter votre travail.\n>\n> — Important à retenir",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-5",
+      "name": "Alerte Danger",
+      "icon": "danger",
+      "color": "#ef4444",
+      "markdown": "> **Danger!**\n>\n> Ceci est une action **irréversible**.\n>\n> Veuillez vérifier deux fois avant de continuer.",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-6",
+      "name": "Information",
+      "icon": "info",
+      "color": "#3b82f6",
+      "markdown": "> **Information**\n>\n> Ceci est une information utile pour comprendre le contexte.\n>\n> Lisez attentivement pour plus de détails.",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-7",
+      "name": "Checklist",
+      "icon": "check",
+      "color": "#10b981",
+      "markdown": "# Checklist\n\n- [ ] Tâche 1 - À faire\n- [x] Tâche 2 - Complétée\n- [x] Tâche 3 - Complétée\n- [ ] Tâche 4 - À faire\n- [ ] Tâche 5 - À faire\n\n**Progression:** 2/5 done",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-8",
+      "name": "Tableau simple",
+      "icon": "table",
+      "color": "#ec4899",
+      "markdown": "| Nom | Email | Rôle |\n|-----|-------|------|\n| Alice | alice@example.com | Admin |\n| Bob | bob@example.com | Utilisateur |\n| Charlie | charlie@example.com | Utilisateur |\n| Diana | diana@example.com | Modérateur |",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-9",
+      "name": "Notes de réunion",
+      "icon": "people",
+      "color": "#06b6d4",
+      "markdown": "# Notes de Réunion\n\n**Date:** 30/10/2024\n**Participants:** Alice, Bob, Charlie\n**Durée:** 1 heure\n\n## Points discutés\n\n1. Planification du projet\n2. Répartition des tâches\n3. Timeline et jalons\n\n## Décisions prises\n\n- done Démarrage le 5 novembre\n- done Sprint de 2 semaines\n- done Réunion hebdomadaire jeudi\n\n## Prochaines étapes\n\n- [ ] Préparer la documentation\n- [ ] Créer les branches Git\n- [ ] Configurer l'environnement",
+      "createdAt": "2024-10-30T00:00:00Z"
+    },
+    {
+      "id": "starter-10",
+      "name": "Guide de style Markdown",
+      "icon": "guide",
+      "color": "#8b5cf6",
+      "markdown": "# Markdown Essentials\n\n## Titres\n\n# H1 - Titre principal\n## H2 - Sous-titre\n### H3 - Section\n\n## Styles texte\n\n- **Gras** avec `**texte**`\n- *Italique* avec `*texte*`\n- ~~Barré~~ avec `~~texte~~`\n- `Code inline` avec backticks\n\n## Listes\n\n### Non ordonnée\n- Item 1\n- Item 2\n  - Sub-item\n\n### Ordonnée\n1. Premier\n2. Deuxième\n3. Troisième\n\n## Citations\n\n> Une belle citation pour inspirer\n\n## Code\n\n```javascript\nconsole.log('Hello!');\n```\n\n## Liens\n\n[Google](https://google.com)",
+      "createdAt": "2024-10-30T00:00:00Z"
+    }
+  ]
+}
