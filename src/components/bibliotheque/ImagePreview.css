@@ -1,0 +1,43 @@
+.modale-fond {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modale-contenu {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modale-contenu img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 8px;
+}
+
+.bouton-fermer {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.bouton-fermer:hover {
+  background-color: #b52b27;
+}

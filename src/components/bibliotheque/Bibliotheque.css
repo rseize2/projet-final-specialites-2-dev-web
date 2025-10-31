@@ -1,0 +1,147 @@
+.bibliotheque-conteneur {
+  padding: 20px;
+}
+
+.zone-import {
+  border: 2px dashed #aaa;
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s;
+}
+
+.zone-import.survol {
+  background-color: #e3f2fd;
+}
+
+.input-fichier {
+  display: none;
+}
+
+.grille-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.carte-image {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.miniature {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.nom-image {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.bouton-supprimer {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.entete-bibliotheque {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.actions-bibliotheque button,
+.bouton-import {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.actions-bibliotheque button:hover,
+.bouton-import:hover {
+  background-color: #0056b3;
+}
+
+.bloc-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bouton-export {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.bouton-export:hover {
+  background-color: #449d44;
+}
+
+.zone-renommage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.champ-renommage {
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.bouton-renommer,
+.bouton-valider {
+  background-color: #0275d8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.bouton-renommer:hover,
+.bouton-valider:hover {
+  background-color: #025aa5;
+}
+
+.bouton-vider {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.bouton-vider:hover {
+  background-color: #b52b27;
+}
