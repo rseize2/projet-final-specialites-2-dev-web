@@ -9,7 +9,10 @@ import { GrValidate } from "react-icons/gr";
 import { RiMarkdownLine } from "react-icons/ri";
 import { MdOutlinePreview } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
+import { MdImage } from "react-icons/md";
 import CustomBlocksManager from '../CustomBlocksManager/CustomBlocksManager';
+import ImageUpload from '../bibliotheque/ImageUpload';
+import { useRef } from 'react';
 
 function Editeur() {
     const dispatch                          = useDispatch();
@@ -21,6 +24,7 @@ function Editeur() {
     const [cheminFichier, setCheminFichier] = useState('');
     const [timeoutId, setTimeoutId]         = useState(null);
     const [afficherBlocsPanel, setAfficherBlocsPanel] = useState(false);
+    const [afficherImagesPanel, setAfficherImagesPanel] = useState(false);
 
     const obtenirCheminComplet = useCallback((fichierOuvert, arborescence) => {
         if (!fichierOuvert) return '';
@@ -114,24 +118,34 @@ function Editeur() {
             <div className="editeur-tabs">
                 <button
                     className   = {`editeur-tab ${ongletActif === 'markdown' ? 'tab-actif' : ''}`}
-                    onClick     = {() => setOngletActif('markdown')}>
+                    onClick     = {() => {setOngletActif('markdown'); setAfficherBlocsPanel(false); setAfficherImagesPanel(false);}}>
                     <RiMarkdownLine /> Markdown
                 </button>
                 <button
                     className   = {`editeur-tab ${ongletActif === 'preview' ? 'tab-actif' : ''}`}
-                    onClick     = {() => setOngletActif('preview')}>
+                    onClick     = {() => {setOngletActif('preview'); setAfficherBlocsPanel(false); setAfficherImagesPanel(false);}}>
                     <MdOutlinePreview /> Prévisualisation
                 </button>
                 <button
-                    className   = "editeur-tab blocs-btn"
-                    onClick     = {() => setAfficherBlocsPanel(!afficherBlocsPanel)}
+                    className   = "editeur-tab"
+                    onClick     = {() => {setAfficherImagesPanel(!afficherImagesPanel); setAfficherBlocsPanel(false);}}
+                    title       = "Ajouter des images">
+                    <MdImage /> Images
+                </button>
+                <button
+                    className   = "editeur-tab"
+                    onClick     = {() => {setAfficherBlocsPanel(!afficherBlocsPanel); setAfficherImagesPanel(false);}}
                     title       = "Insérer des blocs prédéfinis">
                     <FiBook /> Blocs
                 </button>
             </div>
 
             <div className="editeur-content">
-                {afficherBlocsPanel ? (
+                {afficherImagesPanel ? (
+                    <div className="editeur-images-panel">
+                        <ImageUpload />
+                    </div>
+                ) : afficherBlocsPanel ? (
                     <div className="editeur-blocs-panel">
                         <CustomBlocksManager onInsertBlock={insererBloc} />
                     </div>

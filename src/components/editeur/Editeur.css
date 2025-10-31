@@ -211,13 +211,12 @@
     background: white;
 }
 
-.blocs-btn {
-    margin-left: auto;
-    background: #f0f0f0;
-}
-
-.blocs-btn:hover {
-    background: #e0e0e0;
+.editeur-images-panel {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: white;
+    padding: 2rem;
 }
 
 @media (max-width: 768px) {
