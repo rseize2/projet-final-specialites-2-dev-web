@@ -1,11 +1,12 @@
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import Bibliotheque from "../components/bibliotheque/Bibliotheque";
 
-const routes = [
+const router = createBrowserRouter([
   {
     path: "/",
-    Component: Layout,
+    element: <Layout />,
     children: [
       {
         path: "bibliotheque",
@@ -13,8 +14,6 @@ const routes = [
       },
     ],
   },
-];
-
-const router = createBrowserRouter(routes);
+]);
 
 export default router;
