@@ -1,35 +1,60 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import { BsLayoutTextSidebarReverse } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdClose } from "react-icons/md";
 import "./Navbar.css";
 
 function Navbar() {
   const [menuOuvert, setMenuOuvert] = useState(false);
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        setMenuOuvert(false);
+      }
+    };
+
+    if (menuOuvert) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOuvert]);
+
+  const handleNavLinkClick = () => {
+    setMenuOuvert(false);
+  };
 
   return (
     <>
       <button
         className="navbar-toggle"
         onClick={() => setMenuOuvert(!menuOuvert)}
-        aria-label="Ouvrir/Fermer le menu"
+        aria-label={menuOuvert ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-expanded={menuOuvert}
       >
-        <BsLayoutTextSidebarReverse />
+        {menuOuvert ? <MdClose /> : <GiHamburgerMenu />}
       </button>
 
       {menuOuvert && (
         <div
           className="navbar-overlay"
           onClick={() => setMenuOuvert(false)}
+          role="presentation"
         />
       )}
 
-      <nav className={`navbar ${menuOuvert ? "ouvert" : ""}`}>
+      <nav className={`navbar ${menuOuvert ? "ouvert" : ""}`} role="navigation">
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive ? "navbar-link active" : "navbar-link"
           }
-          onClick={() => setMenuOuvert(false)}
+          onClick={handleNavLinkClick}
         >
           Arborescence
         </NavLink>
@@ -39,7 +64,7 @@ function Navbar() {
           className={({ isActive }) =>
             isActive ? "navbar-link active" : "navbar-link"
           }
-          onClick={() => setMenuOuvert(false)}
+          onClick={handleNavLinkClick}
         >
           Éditeur
         </NavLink>
@@ -49,7 +74,7 @@ function Navbar() {
           className={({ isActive }) =>
             isActive ? "navbar-link active" : "navbar-link"
           }
-          onClick={() => setMenuOuvert(false)}
+          onClick={handleNavLinkClick}
         >
           Prévisualisation
         </NavLink>
@@ -59,9 +84,9 @@ function Navbar() {
           className={({ isActive }) =>
             isActive ? "navbar-link active" : "navbar-link"
           }
-          onClick={() => setMenuOuvert(false)}
+          onClick={handleNavLinkClick}
         >
-          Bibliothèque d’images
+          Bibliothèque d'images
         </NavLink>
       </nav>
     </>
