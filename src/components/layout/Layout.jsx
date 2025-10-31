@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { BsLayoutTextSidebarReverse } from "react-icons/bs";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Arborescence from "../arborescence/Arborescence";
-import Editeur from "../editeur/Editeur";
-import Navbar from "../layout/Navbar"; 
+import Navbar from "../layout/Navbar";
 import "./Layout.css";
 
 function Layout() {
   const [sidebarOuverte, setSidebarOuverte] = useState(false);
-  const emplacement = useLocation();
 
   return (
     <div className="layout">
@@ -36,7 +34,7 @@ function Layout() {
       </aside>
 
       <main className="main-content">
-        {emplacement.pathname === "/" ? <Editeur /> : <Outlet />}
+        <Outlet />
       </main>
     </div>
   );
