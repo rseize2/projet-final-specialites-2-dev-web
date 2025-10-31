@@ -11,7 +11,7 @@ import { MdOutlinePreview } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
 import { MdImage } from "react-icons/md";
 import CustomBlocksManager from '../CustomBlocksManager/CustomBlocksManager';
-import ImageUpload from '../bibliotheque/ImageUpload';
+import ImageLibraryEditor from '../bibliotheque/ImageLibraryEditor';
 import { useRef } from 'react';
 
 function Editeur() {
@@ -81,6 +81,13 @@ function Editeur() {
         setAfficherBlocsPanel(false);
     }
 
+    const insererImage = (imageBase64, nomImage) => {
+        const contenuActuel = contenu || '';
+        const markdownImage = `![${nomImage}](${imageBase64})`;
+        const nouveauContenu = contenuActuel + '\n\n' + markdownImage;
+        dispatch(mettreAJourContenu(nouveauContenu));
+    }
+
     useEffect(() => {
         return () => {
             if (timeoutId) {
@@ -142,9 +149,7 @@ function Editeur() {
 
             <div className="editeur-content">
                 {afficherImagesPanel ? (
-                    <div className="editeur-images-panel">
-                        <ImageUpload />
-                    </div>
+                    <ImageLibraryEditor onInsertImage={insererImage} />
                 ) : afficherBlocsPanel ? (
                     <div className="editeur-blocs-panel">
                         <CustomBlocksManager onInsertBlock={insererBloc} />
