@@ -5,7 +5,11 @@
       "Bash(git stash:*)",
       "Bash(git pull:*)",
       "Bash(git restore:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,39 +1,45 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { BsLayoutTextSidebarReverse } from "react-icons/bs";
-import Arborescence from '../arborescence/Arborescence';
-import Editeur from '../editeur/Editeur';
-import './Layout.css';
+import { Outlet, useLocation } from "react-router-dom";
+import Arborescence from "../arborescence/Arborescence";
+import Editeur from "../editeur/Editeur";
+import Navbar from "../layout/Navbar"; 
+import "./Layout.css";
 
 function Layout() {
-    const [sidebarOuverte, setSidebarOuverte] = useState(false);
+  const [sidebarOuverte, setSidebarOuverte] = useState(false);
+  const emplacement = useLocation();
 
-    return (
-        <div className="layout">
-            <header className="header-mobile">
-                <button
-                    className   = "sidebar-toggle"
-                    onClick     = {() => setSidebarOuverte(!sidebarOuverte)}
-                    aria-label  = "Ouvrir/Fermer la sidebar">
-                    <BsLayoutTextSidebarReverse />
-                </button>
-            </header>
+  return (
+    <div className="layout">
+      <Navbar />
 
-            {sidebarOuverte && (
-                <div
-                    className   = "sidebar-overlay"
-                    onClick     = {() => setSidebarOuverte(false)}
-                />
-            )}
+      <header className="header-mobile">
+        <button
+          className="sidebar-toggle"
+          onClick={() => setSidebarOuverte(!sidebarOuverte)}
+          aria-label="Ouvrir/Fermer la sidebar"
+        >
+          <BsLayoutTextSidebarReverse />
+        </button>
+      </header>
 
-            <aside className={`sidebar ${sidebarOuverte ? 'ouverte' : ''}`}>
-                <Arborescence />
-            </aside>
+      {sidebarOuverte && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setSidebarOuverte(false)}
+        />
+      )}
 
-            <main className="main-content">
-                <Editeur />
-            </main>
-        </div>
-    );
+      <aside className={`sidebar ${sidebarOuverte ? "ouverte" : ""}`}>
+        <Arborescence />
+      </aside>
+
+      <main className="main-content">
+        {emplacement.pathname === "/" ? <Editeur /> : <Outlet />}
+      </main>
+    </div>
+  );
 }
 
 export default Layout;
