@@ -1,0 +1,74 @@
+.fichier {
+    margin-bottom: 0.25rem;
+}
+
+.fichier-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.fichier-content:hover {
+    background: #f8f9fa;
+}
+
+.fichier-actif .fichier-content {
+    background: #e3f2fd;
+    border-color: #3498db;
+}
+
+.fichier-icone {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.fichier-nom {
+    flex: 1;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fichier-actions {
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.fichier-content:hover .fichier-actions {
+    opacity: 1;
+}
+
+.fichier-erreur {
+    background: #fee;
+    color: #c33;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    margin: 0.25rem 0;
+    font-size: 0.75rem;
+    border-left: 2px solid #c33;
+}
+
+@media (max-width: 768px) {
+    .fichier-actions {
+        opacity: 1;
+        position: static;
+        margin-top: 0.5rem;
+    }
+
+    .fichier-content {
+        flex-wrap: wrap;
+    }
+
+    .fichier-nom {
+        width: 100%;
+    }
+}

@@ -1,0 +1,224 @@
+.editeur {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.editeur-vide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #6c757d;
+}
+
+.editeur-vide p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.editeur-vide-sub {
+    font-size: 0.9rem !important;
+}
+
+.editeur-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.editeur-chemin {
+    font-size: 0.85rem;
+    color: #495057;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
+}
+
+.editeur-sauvegarde {
+    font-size: 0.85rem;
+}
+
+.sauvegarde-en-cours {
+    color: #ffc107;
+    animation: pulse 1s infinite;
+}
+
+.sauvegarde-ok {
+    color: #28a745;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.editeur-tabs {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.editeur-tab {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.editeur-tab:hover {
+    background: #e9ecef;
+}
+
+.editeur-tab.tab-actif {
+    border-bottom-color: #3498db;
+    color: #3498db;
+    font-weight: 500;
+}
+
+.editeur-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.editeur-textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    border: none;
+    resize: none;
+    outline: none;
+    line-height: 1.6;
+}
+
+.editeur-preview {
+    height: 100%;
+    padding: 2rem;
+    overflow-y: auto;
+    background: white;
+    line-height: 1.6;
+}
+
+.editeur-preview h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+.editeur-preview h2 {
+    font-size: 1.5em;
+    margin: 0.75em 0;
+}
+
+.editeur-preview h3 {
+    font-size: 1.17em;
+    margin: 0.83em 0;
+}
+
+.editeur-preview p {
+    margin: 1em 0;
+}
+
+.editeur-preview code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.editeur-preview pre {
+    background: #f4f4f4;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.editeur-preview pre code {
+    background: none;
+    padding: 0;
+}
+
+.editeur-preview blockquote {
+    border-left: 4px solid #ddd;
+    padding-left: 1em;
+    margin: 1em 0;
+    color: #666;
+}
+
+.editeur-preview ul,
+.editeur-preview ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.editeur-preview li {
+    margin: 0.5em 0;
+}
+
+.editeur-preview a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.editeur-preview a:hover {
+    text-decoration: underline;
+}
+
+.editeur-preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+.editeur-preview table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.editeur-preview th,
+.editeur-preview td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.editeur-preview th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .editeur-tabs {
+        flex-direction: column;
+    }
+
+    .editeur-tab {
+        padding: 0.5rem;
+    }
+
+    .editeur-textarea {
+        font-size: 0.9rem;
+    }
+
+    .editeur-chemin {
+        max-width: 100%;
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,119 @@
+.arborescence {
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.arborescence-header {
+    margin-bottom: 1rem;
+}
+
+.arborescence-header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.arborescence-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    padding: 0.4rem 0.8rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+}
+
+.arborescence-erreur {
+    background: #fee;
+    color: #c33;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    border-left: 3px solid #c33;
+}
+
+.arborescence-selection {
+    background: #e3f2fd;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    border-left: 3px solid #3498db;
+}
+
+.btn-deselect {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+    padding: 0.2rem 0.4rem;
+}
+
+.btn-deselect:hover {
+    color: #333;
+}
+
+.zone-racine-indication {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3498db;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.arborescence-zone-racine {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    min-height: 100px;
+    transition: background 0.2s, border 0.2s;
+}
+
+.arborescence-zone-racine.drag-over-racine {
+    background: #f0f8ff;
+    border: 2px dashed #3498db;
+    border-radius: 4px;
+}
+
+.arborescence-liste {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* src/components/arborescence/Arborescence.css */
+/* Responsive mobile */
+@media (max-width: 1024px) {
+    .arborescence-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .arborescence-actions button {
+        width: 100%;
+    }
+
+    .arborescence-zone-racine {
+        min-height: calc(100vh - 150px);
+    }
+}

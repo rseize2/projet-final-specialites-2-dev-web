@@ -1,0 +1,52 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.preview {
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background: white;
+    min-height: 500px;
+}
+
+.bouton {
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.centered {
+    text-align: center;
+    padding: 2rem;
+}
+
+.centered button {
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .preview {
+        padding: 0.5rem;
+    }
+}

@@ -1,0 +1,109 @@
+.dossier {
+    margin-bottom: 0.25rem;
+}
+
+.dossier-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.dossier-header:hover {
+    background: #f8f9fa;
+}
+
+.dossier-header.drag-over {
+    background: #e8f4f8;
+    border: 1px dashed #3498db;
+}
+
+.dossier-header.dossier-selectionne {
+    background: #e3f2fd;
+    border: 1px solid #3498db;
+}
+
+.dossier-icone {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.dossier-nom {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dossier-actions {
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.dossier-header:hover .dossier-actions {
+    opacity: 1;
+}
+
+.btn-icon {
+    padding: 0.2rem 0.4rem;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.btn-icon:hover {
+    background: #5a6268;
+}
+
+.btn-danger {
+    background: #dc3545;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.dossier-erreur {
+    background: #fee;
+    color: #c33;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    margin: 0.25rem 0;
+    font-size: 0.75rem;
+    border-left: 2px solid #c33;
+}
+
+.dossier-enfants {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.25rem 0 0 0;
+    border-left: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+    .dossier-actions {
+        opacity: 1;
+        position: static;
+        margin-top: 0.5rem;
+    }
+
+    .dossier-header {
+        flex-wrap: wrap;
+    }
+
+    .dossier-nom {
+        width: 100%;
+    }
+}
