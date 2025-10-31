@@ -326,7 +326,6 @@ const markdownSlice = createSlice({
 
             const nomFinal = nom.endsWith('.md') ? nom : `${nom}.md`;
 
-            // Validation
             if (nomFinal.length > 100) {
                 throw new Error('Le nom ne peut pas dépasser 100 caractères');
             }

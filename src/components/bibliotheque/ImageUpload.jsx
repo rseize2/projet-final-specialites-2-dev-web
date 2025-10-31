@@ -7,7 +7,6 @@ export default function ImageUpload() {
   const zoneImport = useRef();
   const inputFichier = useRef();
 
-  // Fonction pour lire le fichier et le convertir en base64
   const lireFichier = (fichier) => {
     const lecteur = new FileReader();
     lecteur.onload = (e) => {
@@ -22,13 +21,11 @@ export default function ImageUpload() {
     lecteur.readAsDataURL(fichier);
   };
 
-  // Sélection via bouton
   const gererSelection = (e) => {
     const fichiers = Array.from(e.target.files);
     fichiers.forEach((f) => lireFichier(f));
   };
 
-  // Dépôt d'images
   const gererDepot = (e) => {
     e.preventDefault();
     const fichiers = Array.from(e.dataTransfer.files);
@@ -46,7 +43,6 @@ export default function ImageUpload() {
     zoneImport.current.classList.remove("survol");
   };
 
-  // Ouvre l’explorateur au clic sur la zone
   const ouvrirExplorateur = () => {
     inputFichier.current.click();
   };

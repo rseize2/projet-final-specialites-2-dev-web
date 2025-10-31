@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Permet de charger depus le localstorage
 const chargerDepuisStockage = () => {
   try {
     const donnees = localStorage.getItem("bibliotheque_images");
@@ -11,7 +10,6 @@ const chargerDepuisStockage = () => {
   }
 };
 
-// Sauvegarder dans le localstorage
 const sauvegarderDansStockage = (images) => {
   try {
     localStorage.setItem("bibliotheque_images", JSON.stringify(images));

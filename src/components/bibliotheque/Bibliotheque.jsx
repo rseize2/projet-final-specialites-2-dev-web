@@ -11,7 +11,6 @@ export default function Bibliotheque() {
   const dispatch = useDispatch();
   const [imageSelectionnee, setImageSelectionnee] = useState(null);
 
-  // Exporter une seule image
   const exporterImage = (image) => {
     const contenu = JSON.stringify(image);
     const blob = new Blob([contenu], { type: "application/json" });
@@ -21,7 +20,6 @@ export default function Bibliotheque() {
     lien.click();
   };
 
-  // Exporter toutes les images
   const exporterToutes = () => {
     const contenu = JSON.stringify(images);
     const blob = new Blob([contenu], { type: "application/json" });
@@ -31,7 +29,6 @@ export default function Bibliotheque() {
     lien.click();
   };
 
-  // Importer un fichier .img.mdl ou .imgs.mdlc
   const importerDepuisFichier = (e) => {
     const fichier = e.target.files[0];
     if (!fichier) return;
@@ -41,10 +38,8 @@ export default function Bibliotheque() {
       try {
         const contenu = JSON.parse(event.target.result);
         if (Array.isArray(contenu)) {
-          // import multiple
           dispatch(importerImages(contenu));
         } else {
-          // import unique
           dispatch(importerImages([contenu]));
         }
       } catch (err) {

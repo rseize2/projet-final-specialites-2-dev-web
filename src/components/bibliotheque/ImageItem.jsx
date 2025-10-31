@@ -8,9 +8,8 @@ export default function ImageItem({ image }) {
   const [enEdition, setEnEdition] = useState(false);
   const [nouveauNom, setNouveauNom] = useState(image.nom);
 
-  // Renommer une image et nbe pas ouvrir le modeal de prévisualisation
   const validerRenommage = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     if (nouveauNom.trim() === "") return;
     dispatch(renommerImage({ id: image.id, nouveauNom }));
     setEnEdition(false);
@@ -23,13 +22,13 @@ export default function ImageItem({ image }) {
       {enEdition ? (
         <div
           className="zone-renommage"
-          onClick={(e) => e.stopPropagation()} 
+          onClick={(e) => e.stopPropagation()}
         >
           <input
             type="text"
             value={nouveauNom}
             onChange={(e) => setNouveauNom(e.target.value)}
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
             onKeyDown={(e) => e.key === "Enter" && validerRenommage(e)}
             className="champ-renommage"
           />
@@ -43,7 +42,7 @@ export default function ImageItem({ image }) {
           <button
             className="bouton-renommer"
             onClick={(e) => {
-              e.stopPropagation(); 
+              e.stopPropagation();
               setEnEdition(true);
             }}
           >
@@ -52,7 +51,7 @@ export default function ImageItem({ image }) {
           <button
             className="bouton-supprimer"
             onClick={(e) => {
-              e.stopPropagation(); 
+              e.stopPropagation();
               dispatch(supprimerImage(image.id));
             }}
           >

@@ -1,16 +1,5 @@
 import BlockPreview from './BlockPreview';
 
-/**
- * BlockLibrary - Composant pour afficher la grille des blocs personnalisés
- *
- * Props:
- * - blocks: Tableau des blocs à afficher
- * - selectedBlock: Bloc actuellement sélectionné
- * - onSelectBlock: Callback(block) pour sélectionner un bloc
- * - onEditBlock: Callback(block) pour éditer un bloc
- * - onDeleteBlock: Callback(blockId) pour supprimer un bloc
- * - onInsertBlock: Callback(markdown) pour insérer un bloc
- */
 function BlockLibrary({
   blocks = [],
   selectedBlock = null,
@@ -38,7 +27,6 @@ function BlockLibrary({
             }}
             onClick={() => onSelectBlock(block)}
           >
-            {/* En-tête de la carte */}
             <div className="bl-card-header">
               <div className="bl-card-title">
                 <span className="bl-card-icon">{block.icon}</span>
@@ -49,7 +37,6 @@ function BlockLibrary({
               </div>
             </div>
 
-            {/* Aperçu miniature */}
             <div className="bl-card-preview">
               <BlockPreview
                 markdown={block.markdown.substring(0, 150)}
@@ -58,7 +45,6 @@ function BlockLibrary({
               />
             </div>
 
-            {/* Date de création */}
             <div className="bl-card-meta">
               <small>
                 {new Date(block.createdAt).toLocaleDateString('fr-FR', {
@@ -68,7 +54,6 @@ function BlockLibrary({
               </small>
             </div>
 
-            {/* Actions */}
             <div className="bl-card-actions">
               <button
                 className="bl-action-btn bl-action-insert"

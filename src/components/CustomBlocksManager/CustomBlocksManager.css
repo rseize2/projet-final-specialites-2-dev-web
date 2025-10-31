@@ -1,8 +1,3 @@
-/* ========================================
-   CUSTOM BLOCKS MANAGER - STYLES
-   ======================================== */
-
-/* Variables CSS */
 :root {
   --cbm-primary: #3b82f6;
   --cbm-secondary: #8b5cf6;
@@ -18,10 +13,6 @@
   --cbm-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* ========================================
-   CUSTOM BLOCKS MANAGER CONTAINER
-   ======================================== */
-
 .cbm-container {
   display: flex;
   flex-direction: column;
@@ -32,7 +23,6 @@
   min-height: 100%;
 }
 
-/* En-tête */
 .cbm-header {
   display: flex;
   justify-content: space-between;
@@ -57,7 +47,6 @@
   align-items: center;
 }
 
-/* Contenu principal */
 .cbm-content {
   display: flex;
   flex-direction: column;
@@ -65,7 +54,6 @@
   flex: 1;
 }
 
-/* Éditeur wrapper */
 .cbm-editor-wrapper {
   background-color: var(--cbm-bg-white);
   border-radius: 0.75rem;
@@ -74,7 +62,6 @@
   border: 2px solid var(--cbm-primary);
 }
 
-/* Barre de recherche */
 .cbm-search-container {
   display: flex;
   gap: 1rem;

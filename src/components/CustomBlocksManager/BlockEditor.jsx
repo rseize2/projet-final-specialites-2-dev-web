@@ -1,17 +1,7 @@
 import { useState, useEffect } from 'react';
 import BlockPreview from './BlockPreview';
 
-/**
- * BlockEditor - Composant pour créer ou modifier un bloc personnalisé
- *
- * Props:
- * - block: Bloc à éditer (null si création)
- * - onSave: Callback(blockData) appelé quand on sauvegarde
- * - onCancel: Callback() appelé quand on annule
- * - isEditing: Booléen indiquant si on est en mode édition
- */
 function BlockEditor({ block = null, onSave = () => {}, onCancel = () => {}, isEditing = false }) {
-  // État du formulaire
   const [formData, setFormData] = useState({
     name: '',
     icon: 'icon',
@@ -22,7 +12,6 @@ function BlockEditor({ block = null, onSave = () => {}, onCancel = () => {}, isE
   const [errors, setErrors] = useState({});
   const [showPreview, setShowPreview] = useState(false);
 
-  // Initialiser le formulaire avec le bloc existant
   useEffect(() => {
     if (block) {
       setFormData({
@@ -42,16 +31,12 @@ function BlockEditor({ block = null, onSave = () => {}, onCancel = () => {}, isE
     setErrors({});
   }, [block]);
 
-  /**
-   * Gère les changements des champs du formulaire
-   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-    // Effacer l'erreur du champ quand on tape
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -60,9 +45,6 @@ function BlockEditor({ block = null, onSave = () => {}, onCancel = () => {}, isE
     }
   };
 
-  /**
-   * Valide le formulaire
-   */
   const validateForm = () => {
     const newErrors = {};
 

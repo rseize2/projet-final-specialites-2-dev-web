@@ -1,4 +1,3 @@
-// src/components/arborescence/Fichier.jsx
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { renommer, supprimer, ouvrirFichier } from '../../store/slices/markdownSlice';
@@ -13,9 +12,9 @@ import { BiRename } from "react-icons/bi";
 import { IoLogoMarkdown } from "react-icons/io5";
 
 function Fichier({ fichier }) {
-    const dispatch                          = useDispatch();
+    const dispatch = useDispatch();
     const [modaleOuverte, setModaleOuverte] = useState(false);
-    const fichierOuvert                     = useSelector((store) => store.markdown.fichierOuvert);
+    const fichierOuvert = useSelector((store) => store.markdown.fichierOuvert);
 
     function gererOuverture() {
         dispatch(ouvrirFichier(fichier.id));

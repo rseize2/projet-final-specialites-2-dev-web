@@ -4,27 +4,13 @@ import BlockEditor from './BlockEditor';
 import BlockImporterExporter from './BlockImporterExporter';
 import './CustomBlocksManager.css';
 
-/**
- * CustomBlocksManager - Composant principal de gestion des blocs personnalisés
- *
- * Props:
- * - onInsertBlock: Callback appelé avec le markdown du bloc à insérer
- *
- * État:
- * - blocks: Tableau des blocs personnalisés
- * - selectedBlock: Bloc actuellement sélectionné (null si aucun)
- * - isEditorOpen: Booléen pour afficher/masquer l'éditeur
- * - editingBlockId: ID du bloc en cours d'édition (null si création)
- */
 function CustomBlocksManager({ onInsertBlock = () => {} }) {
-  // État principal
   const [blocks, setBlocks] = useState([]);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [editingBlockId, setEditingBlockId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Charger les blocs depuis localStorage au montage
   useEffect(() => {
     const loadBlocks = () => {
       try {
@@ -39,7 +25,6 @@ function CustomBlocksManager({ onInsertBlock = () => {} }) {
     loadBlocks();
   }, []);
 
-  // Sauvegarder les blocs dans localStorage chaque fois qu'ils changent
   useEffect(() => {
     try {
       localStorage.setItem('customBlocks', JSON.stringify(blocks));
@@ -48,10 +33,8 @@ function CustomBlocksManager({ onInsertBlock = () => {} }) {
     }
   }, [blocks]);
 
-  // Gestion des raccourcis clavier
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Ctrl+Alt+B pour ouvrir la création rapide
       if (e.ctrlKey && e.altKey && e.key === 'b') {
         e.preventDefault();
         setEditingBlockId(null);
@@ -63,9 +46,6 @@ function CustomBlocksManager({ onInsertBlock = () => {} }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  /**
-   * Ajoute un nouveau bloc
-   */
   const handleAddBlock = useCallback((newBlock) => {
     const blockWithId = {
       ...newBlock,
@@ -77,9 +57,6 @@ function CustomBlocksManager({ onInsertBlock = () => {} }) {
     setEditingBlockId(null);
   }, []);
 
-  /**
-   * Met à jour un bloc existant
-   */
   const handleUpdateBlock = useCallback((updatedBlock) => {
     setBlocks((prev) =>
       prev.map((block) =>
@@ -93,9 +70,6 @@ function CustomBlocksManager({ onInsertBlock = () => {} }) {
     setSelectedBlock(null);
   }, [editingBlockId]);
 
-  /**
-   * Supprime un bloc
-   */
   const handleDeleteBlock = useCallback((blockId) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer ce bloc ?')) {
       setBlocks((prev) => prev.filter((block) => block.id !== blockId));
