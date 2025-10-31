@@ -8,6 +8,8 @@ import { FaRegFolderOpen } from "react-icons/fa6";
 import { GrValidate } from "react-icons/gr";
 import { RiMarkdownLine } from "react-icons/ri";
 import { MdOutlinePreview } from "react-icons/md";
+import { FiBook } from "react-icons/fi";
+import CustomBlocksManager from '../CustomBlocksManager/CustomBlocksManager';
 
 function Editeur() {
     const dispatch                          = useDispatch();
@@ -18,6 +20,7 @@ function Editeur() {
     const [ongletActif, setOngletActif]     = useState('markdown');
     const [cheminFichier, setCheminFichier] = useState('');
     const [timeoutId, setTimeoutId]         = useState(null);
+    const [afficherBlocsPanel, setAfficherBlocsPanel] = useState(false);
 
     const obtenirCheminComplet = useCallback((fichierOuvert, arborescence) => {
         if (!fichierOuvert) return '';
@@ -67,6 +70,13 @@ function Editeur() {
         setTimeoutId(newTimeoutId);
     }
 
+    const insererBloc = (markdownBloc) => {
+        const contenuActuel = contenu || '';
+        const nouveauContenu = contenuActuel + '\n\n' + markdownBloc;
+        dispatch(mettreAJourContenu(nouveauContenu));
+        setAfficherBlocsPanel(false);
+    }
+
     useEffect(() => {
         return () => {
             if (timeoutId) {
@@ -112,10 +122,20 @@ function Editeur() {
                     onClick     = {() => setOngletActif('preview')}>
                     <MdOutlinePreview /> Prévisualisation
                 </button>
+                <button
+                    className   = "editeur-tab blocs-btn"
+                    onClick     = {() => setAfficherBlocsPanel(!afficherBlocsPanel)}
+                    title       = "Insérer des blocs prédéfinis">
+                    <FiBook /> Blocs
+                </button>
             </div>
 
             <div className="editeur-content">
-                {ongletActif === 'markdown' ? (
+                {afficherBlocsPanel ? (
+                    <div className="editeur-blocs-panel">
+                        <CustomBlocksManager onInsertBlock={insererBloc} />
+                    </div>
+                ) : ongletActif === 'markdown' ? (
                     <textarea
                         className       = "editeur-textarea"
                         value           = {contenu}

@@ -4,6 +4,7 @@ import Layout from "../components/layout/Layout";
 import Bibliotheque from "../components/bibliotheque/Bibliotheque";
 import Editeur from "../components/editeur/Editeur";
 import Previsualisation from "../components/previsualisation/Previsualisation";
+import CustomBlocksManager from "../components/CustomBlocksManager/CustomBlocksManager";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "bibliotheque",
         element: <Bibliotheque />,
+      },
+      {
+        path: "blocs",
+        element: <CustomBlocksManager />,
       },
     ],
   },

@@ -39,6 +39,15 @@ function Navbar() {
       >
         Bibliothèque d'images
       </NavLink>
+
+      <NavLink
+        to="/blocs"
+        className={({ isActive }) =>
+          isActive ? "navbar-link active" : "navbar-link"
+        }
+      >
+        Gestionnaire de Blocs
+      </NavLink>
     </nav>
   );
 }

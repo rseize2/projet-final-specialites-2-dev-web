@@ -204,6 +204,22 @@
     font-weight: bold;
 }
 
+.editeur-blocs-panel {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: white;
+}
+
+.blocs-btn {
+    margin-left: auto;
+    background: #f0f0f0;
+}
+
+.blocs-btn:hover {
+    background: #e0e0e0;
+}
+
 @media (max-width: 768px) {
     .editeur-tabs {
         flex-direction: column;

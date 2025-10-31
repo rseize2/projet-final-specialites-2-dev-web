@@ -12,30 +12,32 @@ function Layout() {
     <div className="layout">
       <Navbar />
 
-      <header className="header-mobile">
-        <button
-          className="sidebar-toggle"
-          onClick={() => setSidebarOuverte(!sidebarOuverte)}
-          aria-label="Ouvrir/Fermer la sidebar"
-        >
-          <BsLayoutTextSidebarReverse />
-        </button>
-      </header>
+      <div className="layout-body">
+        <header className="header-mobile">
+          <button
+            className="sidebar-toggle"
+            onClick={() => setSidebarOuverte(!sidebarOuverte)}
+            aria-label="Ouvrir/Fermer la sidebar"
+          >
+            <BsLayoutTextSidebarReverse />
+          </button>
+        </header>
 
-      {sidebarOuverte && (
-        <div
-          className="sidebar-overlay"
-          onClick={() => setSidebarOuverte(false)}
-        />
-      )}
+        {sidebarOuverte && (
+          <div
+            className="sidebar-overlay"
+            onClick={() => setSidebarOuverte(false)}
+          />
+        )}
 
-      <aside className={`sidebar ${sidebarOuverte ? "ouverte" : ""}`}>
-        <Arborescence />
-      </aside>
+        <aside className={`sidebar ${sidebarOuverte ? "ouverte" : ""}`}>
+          <Arborescence />
+        </aside>
 
-      <main className="main-content">
-        <Outlet />
-      </main>
+        <main className="main-content">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }
