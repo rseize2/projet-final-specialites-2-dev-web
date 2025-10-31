@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { marked } from 'marked';
 import './Previsualisation.css';
+import { FaPen } from "react-icons/fa";
 
 function Previsualisation() {
     const navigate          = useNavigate();
@@ -24,13 +25,13 @@ function Previsualisation() {
             <div className="header">
                 <h1>Prévisualisation</h1>
                 <button className="bouton" onClick={() => navigate('/editeur')}>
-                    ✏️ Retour à l'éditeur
+                    <FaPen /> Retour à l'éditeur
                 </button>
             </div>
 
             <div
-                className="preview"
-                dangerouslySetInnerHTML={{ __html: htmlContent }}
+                className               ="preview"
+                dangerouslySetInnerHTML ={{ __html: htmlContent }}
             />
         </div>
     );
